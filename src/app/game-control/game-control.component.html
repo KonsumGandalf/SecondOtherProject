@@ -1,0 +1,31 @@
+<div class="container">
+    <app-game-buttons
+            (evenState)="onEvenAdded($event)"
+            (oddState)="onOddAdded($event)"
+    >
+    </app-game-buttons>
+
+    <hr>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Elements of oddElements</th>
+            <th style=" font-style: italic ">Elements of evenElements</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let oddEle of oddElements; index as idx">
+            <td *ngIf="oddElements[idx]">
+                <app-even [element]="oddElements[idx]"></app-even>
+            </td>
+            <td *ngIf="evenElements[idx]">
+                <app-odd
+                        [element]="evenElements[idx]"></app-odd>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="container">
+    <app-cockpit
+            (serverCreated)="onServerAdded($event)"
+            (bluePrintCreated)="onBlueprintAdded($event)">
+        <p>Add new Servers or blueprints!</p>
+    </app-cockpit>
+
+    <button class="btn btn-primary" (click)="onChangeElement()">Trigger on Change</button>
+    <button class="btn btn-secondary" (click)="onDestroyFirstElement()">Destroy Element</button>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-server-element *ngFor="let serverElement of serverElements"
+                                [element]="serverElement">
+
+            </app-server-element>
+        </div>
+    </div>
+
+    <app-game-control></app-game-control>
+</div>
